@@ -9,12 +9,15 @@
     <script type="text/javascript" src="./vendors/angular/angular.min.js"></script>
     <script type="text/javascript" src="/vendors/angular-route/angular-route.min.js"></script>
     <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/controllers/controllers.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/factories/factory.min.js"></script>
 </head>
 
 <body>
-    <div class="well">
+    <div class="container">
         <h1>Check it out</h1>
         <div ng-include="'/assets/views/templates/nav.html'"></div>
+
 
         <main ng-view></main>
     </div>
