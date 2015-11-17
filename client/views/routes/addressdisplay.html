@@ -1,9 +1,8 @@
 <p>Address Display Page</p>
 
 <div class="well" ng-controller="AddressController">
-    <select ng-click="findAddress">
-        <option value="One">One</option>
-        <option value="Two">Two</option>
-        <option value="Three">Three</option>
+    <select ng-model="selected"
+            ng-options="test for test in findUsers"
+            ng-change="change(selected)">
     </select>
 </div>

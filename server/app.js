@@ -9,6 +9,28 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({expanded: true}));
 
 
+//getting the users to upload into the dropdown menu
+app.get('/user', function(req, res){
+    var users = [];
+
+    pg.connect(connectionString, function (err, client, done){
+        var query = client.query("SELECT name FROM users");
+
+        query.on('row', function(row){
+            users.push(row);
+        });
+
+        query.on('end', function(){
+            client.end();
+            console.log("Is the user data getting pulled down?: ", users);
+            return res.json(users);
+        });
+        if (err) {
+            console.log("Error", err);
+        }
+    })
+});
+
 app.get('/address', function(req, res){
     console.log('Confirmed Client to Server')
 });
